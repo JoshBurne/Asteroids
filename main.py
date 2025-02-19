@@ -11,6 +11,8 @@ def main():
     dt = 0
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+   
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
         #allows the user to quit using the "X"
@@ -21,8 +23,10 @@ def main():
         #fills screen with black (0,0,0)    
         screen.fill((0,0,0))
 
-        player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+        player.update(dt)
         player.draw(screen)
+        
         # refreshes the display
         pygame.display.flip()
         dt = tick_clock.tick(60) / 1000
